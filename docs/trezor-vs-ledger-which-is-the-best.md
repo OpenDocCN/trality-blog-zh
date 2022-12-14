@@ -2,7 +2,7 @@
 
 > 原文：<https://www.trality.com/blog/trezor-vs-ledger-which-is-the-best/>
 
-密码行业是一个利润丰厚的领域。然而，用户不得不与两种主要威胁作斗争来保护他们的投资。CSS-18up 66p { color:# 00b8e 6；字体粗细:正常；光标:指针；左:0px 位置:相对；-webkit-transition:全部 500ms 转场:全部 500ms-webkit-text-decoration:无；文字-装饰:无；} [波动](/blog/staying-disciplined)和安全。用户可以凭借敏锐的金融嗅觉和合理的风险管理策略，安全地驾驭前者(波动性)。然而，后者(安全)可能更加困难，尤其是因为[的加密骗局](/blog/crypto-malware-keep-your-crypto-safe)在数量和复杂程度上都在增长。
+密码行业是一个利润丰厚的领域。然而，用户不得不与两种主要威胁作斗争来保护他们的投资。 [波动](/blog/staying-disciplined)和安全。用户可以凭借敏锐的金融嗅觉和合理的风险管理策略，安全地驾驭前者(波动性)。然而，后者(安全)可能更加困难，尤其是因为[的加密骗局](/blog/crypto-malware-keep-your-crypto-safe)在数量和复杂程度上都在增长。
 
 通常，黑客攻击是由于战略漏洞或后门攻击。自 2011 年以来，加密世界遭受了[次重大黑客攻击](https://cointelegraph.com/magazine/crypto-exchange-hacks/)，导致价值数百万美元的加密资产损失。在极端情况下，如 [Mt. Gox 黑客](https://forkast.news/mt-gox-may-bitcoin-mark-karpeles-ungoxed-nft/#:~:text=Gox%20went%20bankrupt%20on%20Feb,Karpeles%20said%20he%20cooperated%20with.)，交易所不得不暂停交易；这仍然是历史上最大的比特币抢劫案。
 

@@ -2,7 +2,7 @@
 
 > 原文：<https://www.trality.com/blog/crypto-exchanges-without-kyc/>
 
-曾经有一段时间，密码市场似乎准备淘汰繁琐的程序。CSS-18up 66p { color:# 00b8e 6；字体粗细:正常；光标:指针；左:0px 位置:相对；-webkit-transition:全部 500ms 转场:全部 500ms-webkit-text-decoration:无；文字-装饰:无；} [KYC 验证](https://www.investopedia.com/terms/k/knowyourclient.asp)流程(还记得当年[币安只要求一个邮箱地址](https://cryptopotato.com/binance-rolls-out-mandatory-kyc-requirements-amid-regulatory-woes/)？).然而现在，对于大多数人来说，加密空间中的 KYC 已经成为不可逃避的现实。如果您曾经在任何领先的加密交易所设立过账户，您可能会被要求完成了解您的客户(KYC)流程，然后才能进行任何交易。
+曾经有一段时间，密码市场似乎准备淘汰繁琐的程序。 [KYC 验证](https://www.investopedia.com/terms/k/knowyourclient.asp)流程(还记得当年[币安只要求一个邮箱地址](https://cryptopotato.com/binance-rolls-out-mandatory-kyc-requirements-amid-regulatory-woes/)？).然而现在，对于大多数人来说，加密空间中的 KYC 已经成为不可逃避的现实。如果您曾经在任何领先的加密交易所设立过账户，您可能会被要求完成了解您的客户(KYC)流程，然后才能进行任何交易。
 
 当然，遵守 KYC 有一些非常重要的原因，其中最主要的是它是一种有效的反洗钱(AML)措施。正如比特币专家报道的那样，“采用协调的国际加密 KYC 方法可以解决日益严重的勒索病毒问题，因为攻击者将很容易根据他们的个人信息被跟踪。”事实上，许多人认为 KYC 措施是加密技术长寿的关键之一。然而，还有一些人认为[区块链是低效的 KYC 流程的解决方案。](https://appinventiv.com/blog/use-blockchain-technology-for-kyc/)
 

@@ -26,7 +26,7 @@
 *   由于过去表现不佳而未能抓住机会。
 *   允许媒体炒作或负面言论扰乱你的交易过程。
 
-如你所见，当我们屈服于本能时，很多事情都会出错。正如加里·戴顿在他的书中写道。CSS-18up 66p { color:# 00b8e 6；字体粗细:正常；光标:指针；左:0px 位置:相对；-webkit-transition:全部 500ms 转场:全部 500ms-webkit-text-decoration:无；文字-装饰:无；} [*用心交易:* *用专注和前沿的心理达到你的最佳交易表现*](https://www.wiley.com/en-us/Trade+Mindfully%3A+Achieve+Your+Optimum+Trading+Performance+with+Mindfulness+and+Cutting+Edge+Psychology-p-9781118991039) ，“认知偏差和情绪会让你抓住输家不放，在错误的时间以错误的方向交易，跳入计划外的交易，以及其他不稳定的交易。”加密市场为交易者提供了巨大的投资机会，但有几件事要记住，当你周围的每个人都在破纪录的反弹和心脏病诱发的价值暴跌中失去理智时，这将帮助你度过风暴。
+如你所见，当我们屈服于本能时，很多事情都会出错。正如加里·戴顿在他的书中写道。 [*用心交易:* *用专注和前沿的心理达到你的最佳交易表现*](https://www.wiley.com/en-us/Trade+Mindfully%3A+Achieve+Your+Optimum+Trading+Performance+with+Mindfulness+and+Cutting+Edge+Psychology-p-9781118991039) ，“认知偏差和情绪会让你抓住输家不放，在错误的时间以错误的方向交易，跳入计划外的交易，以及其他不稳定的交易。”加密市场为交易者提供了巨大的投资机会，但有几件事要记住，当你周围的每个人都在破纪录的反弹和心脏病诱发的价值暴跌中失去理智时，这将帮助你度过风暴。
 
 ## **市场低迷不可避免**
 

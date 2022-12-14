@@ -20,7 +20,7 @@ FinTech 已经改变了你的个人和职业生活，最不寻常的是，你甚
 
 ## 金融科技简史
 
-虽然金融科技不可否认是未来，但它最近的许多创新掩盖了至少可以追溯到 20 世纪 50 年代的历史。CSS-18up 66p { color:# 00b8e 6；字体粗细:正常；光标:指针；左:0px 位置:相对；-webkit-transition:全部 500ms 转场:全部 500ms-webkit-text-decoration:无；文字-装饰:无；} [有些追溯到 19 世纪 60 年代](https://www.getsmarter.com/blog/market-trends/the-history-of-fintech/)。可以毫不夸张地说，随着第一张信用卡的问世，Diner's Club Inc .改变了金融历史的进程。
+虽然金融科技不可否认是未来，但它最近的许多创新掩盖了至少可以追溯到 20 世纪 50 年代的历史。 [有些追溯到 19 世纪 60 年代](https://www.getsmarter.com/blog/market-trends/the-history-of-fintech/)。可以毫不夸张地说，随着第一张信用卡的问世，Diner's Club Inc .改变了金融历史的进程。
 
 *   20 世纪 50 年代- **信用卡** -减轻携带现金的负担
 *   20 世纪 60 年代- **自动取款机** -取代出纳员和分行

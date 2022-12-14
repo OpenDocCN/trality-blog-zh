@@ -36,7 +36,7 @@ An example of triangular arbitrage in crypto. Source: algotrading101.com.
 
 ### **潜伏套利**
 
-大型机构投资者从事所谓的潜伏套利，这种交易方式允许他们以交易速度较慢的投资者为代价获利。利润来自于利用低延迟，即信号被触发和到达目的地之间的时间。在这种情况下，我们谈论的是极快的速度，通常不到一秒。人们普遍对潜伏套利持负面看法，尤其是因为它让散户投资者付出了代价。CSS-18up 66p { color:# 00b8e 6；字体粗细:正常；光标:指针；左:0px 位置:相对；-webkit-transition:全部 500ms 转场:全部 500ms-webkit-text-decoration:无；文字-装饰:无；} [估计每年 50 亿美元](https://www.cnbc.com/2020/01/27/latency-arbitrage-trading-costs-investors-5-billion-a-year-study.html)。在潜伏套利的情况下，个人无法与机构投资者享有的交易速度竞争，使他们处于竞争劣势。
+大型机构投资者从事所谓的潜伏套利，这种交易方式允许他们以交易速度较慢的投资者为代价获利。利润来自于利用低延迟，即信号被触发和到达目的地之间的时间。在这种情况下，我们谈论的是极快的速度，通常不到一秒。人们普遍对潜伏套利持负面看法，尤其是因为它让散户投资者付出了代价。 [估计每年 50 亿美元](https://www.cnbc.com/2020/01/27/latency-arbitrage-trading-costs-investors-5-billion-a-year-study.html)。在潜伏套利的情况下，个人无法与机构投资者享有的交易速度竞争，使他们处于竞争劣势。
 
 ### **空间套利**
 

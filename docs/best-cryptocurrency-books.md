@@ -14,7 +14,7 @@
 
 ## 《利害关系的证明:以太坊的形成和区块链哲学》维塔利科·布特林著(企鹅出版社，2022 年)
 
-你永远不应该以封面来判断一本书，以太坊的创造者 Vitalik Buterin 也是如此。正如他的博客的普通读者可以证明的那样。CSS-18up 66p { color:# 00b8e 6；字体粗细:正常；光标:指针；左:0px 位置:相对；-webkit-transition:全部 500ms 转场:全部 500ms-webkit-text-decoration:无；文字-装饰:无；} [维塔利克·布特林的网站](https://vitalik.ca/)”)布特林是一个脑子里装了很多有趣事情的人。老实说，如果他只是把他的书命名为*维塔利克·布特林的书*(可能是出版商的一个禁忌)，我们也不会感到惊讶，但是 [*利害关系的证明:以太坊的制作和区块链的哲学*](https://www.penguinrandomhouse.com/books/714151/proof-of-stake-by-vitalik-buterin/) 提供了一个迷人的视角，让我们一窥以太坊这个世界上最重要的区块链之一背后的愿景和想法。
+你永远不应该以封面来判断一本书，以太坊的创造者 Vitalik Buterin 也是如此。正如他的博客的普通读者可以证明的那样。 [维塔利克·布特林的网站](https://vitalik.ca/)”)布特林是一个脑子里装了很多有趣事情的人。老实说，如果他只是把他的书命名为*维塔利克·布特林的书*(可能是出版商的一个禁忌)，我们也不会感到惊讶，但是 [*利害关系的证明:以太坊的制作和区块链的哲学*](https://www.penguinrandomhouse.com/books/714151/proof-of-stake-by-vitalik-buterin/) 提供了一个迷人的视角，让我们一窥以太坊这个世界上最重要的区块链之一背后的愿景和想法。
 
 ![](img/513d16da74b9eecfbbb7beb428e790f2.png)![Proof of Stake: The Making of Ethereum and the Philosophy of Blockchains by Vitalik Buterin (Penguin, 2022)](img/b7af165b35e0511b96a400e099b1b81e.png)
 

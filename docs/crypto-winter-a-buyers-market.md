@@ -4,7 +4,7 @@
 
 如果你是 HBO 热门剧集《权力的游戏》的粉丝，那么你可能对“冬天来了”这个短语很熟悉，这意味着坏事即将来临。
 
-但是在隐球层，冬天已经来了！事实上，你不可能长时间浏览你的新闻提要而不看到任何一篇关于新的加密冬天的文章。事实上，从标题来看，这是世界末日:“‘秘密的冬天’随着投资者的狂热变得冷酷无情而降临”。CSS-18up 66p { color:# 00b8e 6；字体粗细:正常；光标:指针；左:0px 位置:相对；-webkit-transition:全部 500ms 转场:全部 500ms-webkit-text-decoration:无；文字-装饰:无；}[](https://www.washingtontimes.com/news/2022/jun/20/crypto-winter-descends-as-investors-hot-streak-tur/)*)；”“恐惧如此之多”:交易者迎来了秘密的冬天”([彭博](https://www.bloomberg.com/news/articles/2022-06-17/crypto-winter-is-here-there-s-so-much-fear-as-bitcoin-plunges))；”“有如此多的恐惧”:一个隐秘的冬天已经来临”( [*《悉尼先驱晨报》*](https://www.smh.com.au/business/markets/there-s-so-much-fear-a-crypto-winter-has-arrived-20220620-p5auy9.html))；”Crypto winter 冻结了数字资产公司的体育赞助随着严酷的“冬天”降临，秘密投资者的热潮结束了”( [*洛杉矶时报*](https://www.latimes.com/business/story/2022-06-20/crypto-investors-hot-streak-ends-as-harsh-winter-descends) )。*
+但是在隐球层，冬天已经来了！事实上，你不可能长时间浏览你的新闻提要而不看到任何一篇关于新的加密冬天的文章。事实上，从标题来看，这是世界末日:“‘秘密的冬天’随着投资者的狂热变得冷酷无情而降临”。[](https://www.washingtontimes.com/news/2022/jun/20/crypto-winter-descends-as-investors-hot-streak-tur/)*)；”“恐惧如此之多”:交易者迎来了秘密的冬天”([彭博](https://www.bloomberg.com/news/articles/2022-06-17/crypto-winter-is-here-there-s-so-much-fear-as-bitcoin-plunges))；”“有如此多的恐惧”:一个隐秘的冬天已经来临”( [*《悉尼先驱晨报》*](https://www.smh.com.au/business/markets/there-s-so-much-fear-a-crypto-winter-has-arrived-20220620-p5auy9.html))；”Crypto winter 冻结了数字资产公司的体育赞助随着严酷的“冬天”降临，秘密投资者的热潮结束了”( [*洛杉矶时报*](https://www.latimes.com/business/story/2022-06-20/crypto-investors-hot-streak-ends-as-harsh-winter-descends) )。*
 
 *根据 crypto bros [Tyler 和 Gemini 首席执行官兼总裁卡梅隆·文克莱沃斯](https://www.gemini.com/blog/a-message-from-cameron-and-tyler)的博客文章，加密领域正在进入一个漫长的收缩或低迷期，被称为加密冬天。*
 
