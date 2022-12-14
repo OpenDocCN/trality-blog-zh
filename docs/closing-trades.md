@@ -61,7 +61,7 @@ Source: [mlfinlab](https://mlfinlab.readthedocs.io/en/latest/labeling/tb_meta_la
 
 让我们假设 BTC 目前的市场价格大约是 8840 USDT，我们想在 9000 USDT 卖出 3 BTC。我们可以通过以下方式使用 if-touched 市价单来实现:
 
-```
+```py
 order_iftouched_market_amount("BTCUSDT",amount=-3,stop_price=9000)
 ```
 
@@ -71,7 +71,7 @@ order_iftouched_market_amount("BTCUSDT",amount=-3,stop_price=9000)
 
 为给定金额创建一个触及市价卖单，止损价格高于当前市价的止损百分比(止盈)。
 
-```
+```py
 order_take_profit(symbol="BTCUSDT",amount=3,
 				  stop_percent=0.05,subtract_fees=False)
 ```
@@ -80,7 +80,7 @@ order_take_profit(symbol="BTCUSDT",amount=3,
 
 为给定金额创建一个触及市价卖单，止损价格低于当前市价的止损百分比(止损)。
 
-```
+```py
 order_stop_loss(symbol="BTCUSDT",amount=3,
 				stop_percent=0.05,subtract_fees=False)
 ```
@@ -106,7 +106,7 @@ order_stop_loss(symbol="BTCUSDT",amount=3,
 
 目前，我们将忽略垂直障碍，看看如何实现一个合适的函数来处理我们的损益障碍。我们的目标是获得一个简单的函数，为一个给定的符号、数量和上下限创建这个“双重屏障”。让我们看看如何在 Python 中做到这一点:
 
-```
+```py
 def make_double_barrier(symbol,amount,take_profit,stop_loss,state):
 
     """make_double_barrier
@@ -153,7 +153,7 @@ def make_double_barrier(symbol,amount,take_profit,stop_loss,state):
 
 作为一个额外的特征，我们可以包括一个最大的持有期(即垂直障碍)。这种方法只是使用状态信息来检查我们的头寸持有时间是否超过我们的最大持有期。如果是这种情况，我们平仓并取消我们的障碍订单。
 
-```
+```py
 def check_max_holding_period(timestamp,state):
 
     """check_max_holding_period
@@ -190,7 +190,7 @@ def check_max_holding_period(timestamp,state):
 
 在上面的例子中，我们使用一个简单的函数来检查我们的状态对象中所有需要的信息。
 
-```
+```py
 def check_state_info(state):
 
     """check_state_info
@@ -250,7 +250,7 @@ $ $ \ text { upticks } = \ sum _ { t = t-5}^{t}符号(close_t - close_{t-1})$$
 
 因此，如果**上涨== 5** ，我们的价格信号将是真实的。是的，这很容易。我们可以写一个小助手函数:
 
-```
+```py
 def last_five_up(data):
     prices = data.select("close")
     signs = np.sign(np.diff(prices))[-5:]
@@ -264,7 +264,7 @@ $$均线(成交量，20)>均线(成交量，40)$$
 
 像往常一样，我们可以直接使用数据对象:
 
-```
+```py
 ema_short_volume, ema_long_volume = volume.ema(20).last, volume.ema(40).last
 
     # return early on missing data
@@ -282,7 +282,7 @@ ema_short_volume, ema_long_volume = volume.ema(20).last, volume.ema(40).last
 
 最后，我们准备编码我们的处理函数，并把整个算法放在一起。我们将 95%的资本用于我们的进入信号:
 
-```
+```py
  def initialize(state):
     state.max_period = None # exclude vertical
 

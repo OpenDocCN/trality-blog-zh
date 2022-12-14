@@ -128,7 +128,7 @@
 
 贷款发放后，不会立即执行。它们类似于订单，因为它们是可能失败的请求，例如，如果所请求的贷款或还款违反了保证金比率或可用余额。保证金借入偿还逻辑返回一个贷款或偿还对象，该对象可以存储在状态中并在以后被刷新和查询。
 
-```
+```py
 state.loan = margin_borrow("BTC", 0.01)
 
 if state.loan is not None:
@@ -136,7 +136,7 @@ if state.loan is not None:
    print(state.loan)
 ```
 
-```
+```py
 state.repayment = margin_repay("BTC", 0.01)
 
 if state.repayment is not None:
@@ -152,7 +152,7 @@ if state.repayment is not None:
 
 ### **一个取消另一个(OCO)**
 
-```
+```py
 from enum import Enum
 
 class Mode(Enum):
@@ -239,7 +239,7 @@ def handler(state, data):
 
 ### **卖空**
 
-```
+```py
 @enable_margin_trading()
 def initialize(state):
     pass
@@ -267,7 +267,7 @@ def handler(state, data):
 
 ### **利用杠杆买入**
 
-```
+```py
 @enable_margin_trading()
 def initialize(state):
     pass
@@ -297,7 +297,7 @@ def handler(state, data):
 
 ### **多空 QQE 策略**
 
-```
+```py
 TRADE_SIZE = 500
 MIN_TRADE_SIZE = 50
 
@@ -344,7 +344,7 @@ def handler(state, data):
 
 ### **计算每日利息成本**
 
-```
+```py
 @enable_margin_trading()
 def initialize(state):
     state.run = 0

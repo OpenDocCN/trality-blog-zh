@@ -40,7 +40,7 @@
 5.  *代理的培训持续多长时间？*代理在环境中运行几次，或者几集(以一种类似于耗尽几轮视频游戏的方式)。
 6.  *后见之明体验回放具体是由什么构成的？代理以元组的形式记忆所有过去的经历*
 
-```
+```py
 tuple = [
 		starting environment state,
 		action taken,
@@ -53,25 +53,25 @@ tuple = [
 
 *克隆。*通过运行以下命令，可以从 GitHub 克隆出 [FiRe](https://github.com/trality/fire) 库
 
-```
+```py
 $ git clone https://github.com/trality/fire.git
 ```
 
 *切换到[火灾](https://github.com/trality/fire)目录*。简单地跑
 
-```
+```py
 $ cd fire
 ```
 
 检查您的 python 版本。你需要 python 3.8.10。您可以通过输入以下命令来检查您当前的 python 版本
 
-```
+```py
 $ python3 --version
 ```
 
 *激活虚拟环境。一旦我们克隆了[之火](https://github.com/trality/fire)，我们建议建立一个虚拟环境。这可以通过运行*
 
-```
+```py
 $ python3 -m venv .venv
 $ source .venv/bin/activate
 ```
@@ -80,7 +80,7 @@ $ source .venv/bin/activate
 
 *完成设置。*您可以安装所有相关的软件包，并下载我们在一些模拟中使用的完全相同的 BTCUSD-hour 数据集，方法是运行
 
-```
+```py
 $ make 
 ```
 
@@ -90,7 +90,7 @@ $ make
 
 在指定所选择的数据集、代理神经网络的超参数、所选择的奖励以及所有相关的深度 Q 学习参数之后，创建一个实验。这些信息是在一个. json 文件中指定的，该文件类似于
 
-```
+```py
 {
     "dataset": {
         "path": "datasets/crypto_datasets/btc_h.csv",
@@ -128,7 +128,7 @@ $ make
 
 *运行实验。*一旦 example.json 文件准备就绪，只需运行
 
-```
+```py
 $ python3 main.py example.json 
 ```
 

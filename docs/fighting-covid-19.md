@@ -28,7 +28,7 @@
 
 在开始之前，我们加载数据和时间序列分析常用的包。我们目前在自己的[城市编辑器](https://www.trality.com/creator/code-editor)中支持`numpy`和`pandas`。我们使用`matplotib`和`seaborn`来获得更高级的图表功能。
 
-```
+```py
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -38,7 +38,7 @@ import seaborn as sns
 
 现在，我们准备探索 COVID 数据集。
 
-```
+```py
 dataset = pd.read_csv("https://static.trality.com/blog/covid19/covid_19_data.csv")
 columns = ['SNo', 'ObservationDate', 'State', 'Country',
            'Last Update', 'Confirmed', 'Deaths', 'Recovered']
@@ -67,7 +67,7 @@ dataset.head()
 
 为了可视化病毒的爆发，我们首先转换数据以获得确诊和痊愈病例以及死亡的时间序列。为此，我们编写了一个简单的助手函数，它返回字典中所选国家的所有时间序列。
 
-```
+```py
 def get_corona_timeseries(dataset,selcountries=None,
 						  group="Country"):
 
@@ -99,7 +99,7 @@ def get_corona_timeseries(dataset,selcountries=None,
 
 为了坚持[干](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself)原则，我们使用另一个效用函数来绘图，
 
-```
+```py
 def corona_plotter(data,ylabel,title,
 				   xlabel="Observation Date",
                    figsize=(10,4)):
@@ -118,7 +118,7 @@ results = get_corona_timeseries(dataset,selcountries=selcountries)
 
 我们首先来看看在我们选定的国家中，每个观测日确诊的电晕病例数。
 
-```
+```py
 confirmed = results["Confirmed"]["series"]
 corona_plotter(confirmed,ylabel="Confirmed Cases",
 			   title="Total Number confirmed cases") 
@@ -132,7 +132,7 @@ corona_plotter(confirmed,ylabel="Confirmed Cases",
 
 显然，中国确诊病例最多。然而，就增长率而言，欧洲的情况要糟糕得多。
 
-```
+```py
 confirmedGrowth = results["Confirmed"]["growth"]
 corona_plotter(confirmedGrowth,
 				ylabel="Confirmed Growth",
@@ -147,7 +147,7 @@ corona_plotter(confirmedGrowth,
 
 最后，我们计算每个观察日期的“官方”感染人数(确认-恢复)。尽管实际感染人数远高于官方报告，但看到市场在多高的水平才开始抛售，仍然很有趣。由于中国的感染人数已经在减少，我们在这里排除了他们。
 
-```
+```py
 infected = (results["Confirmed"]["series"] 
 			- results["Recovered"]["series"])
 
@@ -184,7 +184,7 @@ corona_plotter(totalinfected,ylabel="Infected people",
 
 每个符号的数据相互叠加并包含在`alldata`中。我们显示了前 5 行来查看它的结构。
 
-```
+```py
 alldata = pd.read_csv("https://static.trality.com/blog/covid19/crypto_data_1d.csv")
 alldata.head()
 ```
@@ -199,7 +199,7 @@ alldata.head()
 
 现在我们已经看到了我们的堆叠数据集，我们希望隔离所有货币对的价格、交易量和交易。为了简化，我们将结果存储在下面的`tsdata`字典中:
 
-```
+```py
 tsdata = {}
 for field in ["close","volume","trades"]:
     data = alldata.pivot(values=field,index="closetime",
@@ -215,7 +215,7 @@ for field in ["close","volume","trades"]:
 
 为了使冠状病毒对不同货币价格的影响具有可比性，我们从 3 月初开始对货币对的时间序列进行归一化，并对符号进行平均。
 
-```
+```py
 returns = tsdata["close"].pct_change().dropna()
 covidret = returns["2020-03"]
 normdata = (1+covidret).cumprod()
@@ -225,7 +225,7 @@ meanhist = normdata.mean(axis=1)
 
 我们现在可以绘制这个时间序列，并注释黑色星期一和星期四。
 
-```
+```py
 fig, ax = plt.subplots(figsize=(10, 4))
 
 blackmonday = normdata["2020-03-09"].index[0]
@@ -273,7 +273,7 @@ ax.annotate('Black Thursday',
 
 恐惧和不确定性对交易量也有很大影响，通常与价格变化成反比。为了标准化体积数据，我们使用了[最小-最大](https://en.wikipedia.org/wiki/Feature_scaling)定标器。这样就可以避免度量单位不同和级别依赖的问题。我们再次取体积的平均值。正如我们所见，交易量的激增与平均价格的下降同时发生。
 
-```
+```py
 volume = tsdata["volume"]
 normvol = (volume-volume.min())/(volume.max()-volume.min())
 covidvolume = normvol["2020-03":]
@@ -294,7 +294,7 @@ covidvolume.mean(axis=1).plot(figsize=(10,4),
 
 通常我们可以通过绘制绝对收益来检验波动聚集。高绝对回报集中在市场紧张时期。出现在集群中。
 
-```
+```py
 returns.abs().plot(figsize=(10,4),
 			title="Absolute Returns Currencies")
 plt.legend(loc='center left', bbox_to_anchor=(1.0, 0.5))
@@ -330,7 +330,7 @@ YahooFinance 还包括开盘价、最高价、最低价、收盘价和成交量�
 
 与之前的加密货币数据一样，我们关注的是对传统资产类别市场的平均价格影响。
 
-```
+```py
 alldata2 =pd.read_csv("https://static.trality.com/blog/covid19/traditional_assets_daily.csv
 ")
 
@@ -346,7 +346,7 @@ for field in ["close","volume"]:
 
 我们再次将传统资产的时间序列正常化，并强调 2020 年 3 月的发展。
 
-```
+```py
 returns2 = tsdata2["close"].pct_change().dropna()
 covidret2 = returns2["2020":]
 normdata2 = (1+covidret2).cumprod()
@@ -390,7 +390,7 @@ plt.legend(loc='center left', bbox_to_anchor=(1.0, 0.5))
 
 绘制传统资产类别的绝对收益图也显示了波动性的聚集效应。
 
-```
+```py
 returns2["2019":].abs().plot(title="Absolute Returns")
 plt.legend(loc='center left', bbox_to_anchor=(1.0, 0.5))
 ```
@@ -411,7 +411,7 @@ plt.legend(loc='center left', bbox_to_anchor=(1.0, 0.5))
 
 为了缓解估计时间序列相关性的问题，可以监控滚动相关性，并在滚动期的每个窗口中取消趋势回报(参见 Crypto 中的 [Contagion)。出于我们的目的，我们将简单地归一化而不是去趋势化各个窗口中的所有返回时间序列。为此，我们创建了一个小助手函数。](https://www.researchgate.net/publication/334363449_Contagion_Effect_in_Cryptocurrency_Market)
 
-```
+```py
 def avg_rolling_correlation(data,window=10):
 
     if not isinstance(data,pd.DataFrame):
@@ -433,7 +433,7 @@ def avg_rolling_correlation(data,window=10):
 
 接下来，我们计算两组的滚动相关性，并绘制结果。
 
-```
+```py
 selcols = [col for col in returns.columns if (col[-4:]=="USDT" or col[-3:]=="EUR")]
 stableCorr = avg_rolling_correlation(returns[selcols]).dropna()
 stableCorr.name="stable coins"

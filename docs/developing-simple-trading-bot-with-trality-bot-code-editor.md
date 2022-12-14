@@ -26,7 +26,7 @@
 
 因此，我们制定了两个 EMA 策略(20 和 40 蜡烛回顾期)。该策略基于 1 小时蜡烛线交易，对中短期价格波动很敏感。此外，它总是将 80%的可用基础货币分配给每笔交易。我们使用 Trality Python Bot 代码编辑器来设计这种算法:
 
-```
+```py
  # Define crossovers
 def crossed_upwards(short, lng):
     return short[-2] < lng[-2] and short[-1] > lng[-1]
@@ -71,7 +71,7 @@ def handler(state, data):
 
 让我们逐行分解上面的 bot
 
-```
+```py
 def crossed_upwards(short, lng):
     return short[-2] < lng[-2] and short[-1] > lng[-1]
 
@@ -81,46 +81,46 @@ def crossed_downwards(short, lng):
 
 首先，我们定义每种交叉类型的条件:向上交叉和向下交叉。向上交叉是指在过去的两个蜡烛周期中，长均线的价格位于短均线之上，而在过去的一个蜡烛周期中，这种关系发生了变化，短均线的价格位于长均线之上。相反的关系被定义为向下交叉。
 
-```
+```py
 @schedule(interval="1h", symbol="BTCUSDT")
 ```
 
 你第二个看到的是[时间表装饰](https://docs.trality.com/trality-code-editor/core-concepts/overview)。您可以用这个装饰器注释代码中的任何处理函数，使它在特定的时间间隔内运行，并使用一组指定的符号。在本例中，该函数将每隔 **5 分钟**调用一次，处理函数将接收符号或交易对 **BTCUSDT** 的数据——其中 BTC 是基础资产，USDT 是报价资产。
 
-```
+```py
 def handler(state, data):
 ```
 
 您注释的指定处理函数将接收两个参数:`state`和`data`。虽然[状态对象](https://docs.trality.com/trality-code-editor/core-concepts/overview-1)可用于存储不同处理程序之间的任何变量，但数据对象包含您请求的关于符号 **BTCUSDT** 的信息。这个对象有许多内置函数，比如 100 多个技术分析指标，可以直接从数据对象中计算出来。
 
-```
+```py
  ema_long = data.ema(40)
     ema_short = data.ema(20)
 ```
 
 正如您所看到的，您可以从数据对象中直接计算财务指标。在这种情况下，我们用两个不同的周期(40 蜡烛线和 20 蜡烛线)计算指数移动平均线，然后选择最后一个值。
 
-```
+```py
  if any(param is None for param in [ema_long.last, ema_short.last]):
         return
 ```
 
 接下来，代码检查是否存在空值，例如由维护窗口等引起的空值，如果存在空值，则继续执行。
 
-```
+```py
  has_position = has_open_position(data.symbol, truncated=True)
 ```
 
 在策略中，我们希望避免为符号 **BTCUSDT** 建立超过 **1** 的未平仓头寸。我们使用众多[实用函数](https://docs.trality.com/trality-code-editor/api-documentation/position/querying)中的一个来检索我们当前是否有未平仓头寸。`truncated`参数确保非常小的位置(如灰尘)不会被视为开放位置。
 
-```
+```py
  ema_crossed_upwards = crossed_upwards(ema_short['real'], ema_long['real'])
     ema_crossed_downwards = crossed_downwards(ema_short['real'], ema_long['real'])
 ```
 
 接下来，我们用上面收到的`ema_short`和`ema_long`数据计算之前定义的交叉。
 
-```
+```py
 balance_base = float(query_balance_free(data.base))
 balance_quoted = float(query_balance_free(data.quoted))
 buy_amount = balance_quoted * 0.80 / data.close_last
@@ -128,7 +128,7 @@ buy_amount = balance_quoted * 0.80 / data.close_last
 
 接下来，代码计算策略应该分配给任何购买订单的金额。在这种情况下，报价资产当前余额的 80%被分配。
 
-```
+```py
 if ema_crossed_upwards and not has_position:
    create_order(symbol=data.symbol,amount=buy_amount)
 

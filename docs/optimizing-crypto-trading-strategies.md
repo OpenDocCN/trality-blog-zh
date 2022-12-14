@@ -12,7 +12,7 @@
 
 使用跟踪止损允许趋势跟踪策略保持盈利，同时限制最大损失。有关[尾随订单类型](https://docs.trality.com/trality-code-editor/api-documentation/order/creation/trailing-iftouched)的更多信息，请参见 Trality 文档。
 
-```
+```py
 """ Stop price is the inital price of the stop order
     For a sell the stop should be placed below the current market price
     When the price moves up by trailing_precent the stop is moved
@@ -51,7 +51,7 @@ Backtest results of a 1h EMA crossover strategy
 
 有一种方法可以改善一个有赢有输的策略，那就是考虑在最近几次止损后增加一个冷静期来防止交易。策略通常针对特定的市场条件，如趋势或范围。当策略运行良好，这是一个信号，它是“超过黄金”,可能会有很高的胜率。趋势跟踪策略在牛市中可能有 80%的成功率，但在熊市中只有 20%。通过监控最近的胜率，我们可以推断市场条件对 bot 来说不是最佳的，最好等到市场条件看起来更有希望的时候。对于一个在正确的市场条件下预期胜率为 80%的机器人来说，只有 4%的机会连续两次失败。这个信息对决定如何交易下一个信号很有用。
 
-```
+```py
 ################################################################################
 # compute time as a datetime and store
 ################################################################################
@@ -84,7 +84,7 @@ if now >= state.cooldown[data.symbol]:
 
 在熊市，简单的均线交叉策略的风险调整交易结果很差。这是因为它在寻找可能不存在的趋势。或者，即使有，也不会持续很久。
 
-```
+```py
 ###############################################################
 # Multi symbol 1h moving average cross over strategy
 ###############################################################
@@ -127,7 +127,7 @@ An EMA crossover strategy can struggle in a bearish market.
 
 增加一个长期(1d) super_trend 指标，可以显著提高 bot 应对长期熊市的能力。
 
-```
+```py
 ###############################################################
 # Multi symbol 1h moving average cross over strategy
 # With 1d super trend indicator
@@ -183,7 +183,7 @@ def handler_1h(state, dataMap):
 
 损失通常发生在市场崩溃期间，此时波动性明显高于正常水平。使用价格协方差和当前头寸监控策略的风险并限制策略的风险是有益的，不是基于账户余额，而是基于由 VaR 估计的策略的总风险。
 
-```
+```py
 import numpy as np
 
 ##############################################################
@@ -275,13 +275,13 @@ def handler(state, dataMap):
 
 重要的函数是 compute_portfolio_risk，它给出了第二天投资组合的预期波动率。
 
-```
+```py
 portfolio_risk = compute_portfolio_risk(dataMap, plot_risk=True) 
 ```
 
 使用这种投资组合风险，可以在风险超过限制时做出决策。在 bot 的情况下，我们的目标是相对于风险和我们的目标风险的比率的头寸规模。
 
-```
+```py
 starget = pweight * (RISK_TARGET / portfolio_risk) 
 ```
 

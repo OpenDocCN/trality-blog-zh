@@ -56,7 +56,7 @@ Trality 通过确保机器人接收的烛台数据在真实、虚拟和回溯测
 
 首先，用我们的[调度装饰器](https://docs.trality.com/trality-code-editor/core-concepts/overview)标注的每个函数都在指定的时间间隔运行，并接收符号数据。我们将这些带注释的函数称为处理程序，但是您可以随意命名它们。他们只需要接受两个论点。我们称第一个为[状态](https://docs.trality.com/trality-code-editor/core-concepts/overview-1)，第二个为数据。第二个参数将总是在您指定的时间间隔内接收[符号数据](https://docs.trality.com/trality-code-editor/core-concepts/overview-2)。在这个特定的 bot 中，我们以 6 小时蜡烛线间隔进行交易，并指定了一个交易符号 BTCUSDT。当然，多个符号也是可以交易的！
 
-```
+```py
 def initialize(state):
     pass
 
@@ -68,7 +68,7 @@ def handler(state, data):
 
 在我们算法创建的第一步中，我们定义了两个指数移动平均线(EMA)，一个回看周期较短，为 20 蜡烛线，另一个回看周期较长，为 50 蜡烛线。
 
-```
+```py
  ema_short = data.ema(20).last
    ema_long = data.ema(50).last
 ```
@@ -77,7 +77,7 @@ def handler(state, data):
 
 在第二步中，我们通过符号查询任何开放的[位置](https://docs.trality.com/trality-code-editor/api-documentation/position)。通过调用这个函数，我们接收到一个布尔值，该值指示该符号的开放位置是否存在。
 
-```
+```py
  position = query_open_position_by_symbol(data.symbol,include_dust=False)
     has_position = position is not None
 ```
@@ -86,7 +86,7 @@ def handler(state, data):
 
 在第三步中，我们通过符号查询任何开放的[位置](https://docs.trality.com/trality-code-editor/api-documentation/position)。通过调用这个函数，我们接收到一个布尔值，该值指示该符号的开放位置是否存在。
 
-```
+```py
  position = query_open_position_by_symbol(data.symbol,include_dust=False)
     has_position = position is not None
 ```
@@ -97,7 +97,7 @@ def handler(state, data):
 
 我们还定义了一个卖出逻辑，如果算法检测到未平仓，并且较短的交叉在较长的均线之下，就平仓。
 
-```
+```py
  if ema_short > ema_long and not has_position: 
         order_market_target(symbol=data.symbol, target_percent=0.8)
 
@@ -109,7 +109,7 @@ def handler(state, data):
 
 如果我们将所有这些步骤放在一起，我们会得到下面的小代码片段，我们可以随后对其进行第一次回溯测试:
 
-```
+```py
 def initialize(state):
     pass
 
@@ -172,7 +172,7 @@ def handler(state, data):
 
 从下面的代码中可以看出，我们需要在初始化器上添加新的特性注释 *@parameter* 。一旦完成，为了使用*@参数*注释，我们需要将*参数*对象添加到函数和指示器中。
 
-```
+```py
 @parameter(name="ema_short", type="float", default=20, min=10, max=25, enabled=True)
 @parameter(name="ema_long", type="float", default=50, min=30, max=60, enabled=True)
 def initialize(state, params):
