@@ -155,11 +155,11 @@ Python 最初并不是为数值计算而设计的，这正是 [**NumPy**](https:
 ****在这一步中，我们将只关注定义 handler_long，它将负责识别长期趋势。****
 
 ```py
-**`def initialize(state):
+def initialize(state):
     pass
 
 @schedule(interval="1d", symbol="BTCUSDT")
-def handler_long(state, data):`**
+def handler_long(state, data):
 ```
 
 ### ****步骤 2:在 handler_long 中解析长期趋势信号****
@@ -167,19 +167,19 @@ def handler_long(state, data):`**
 ****在我们算法的第一步中，我们构建了识别 handler_long 函数上升趋势的功能。我们定义简单移动平均线(SMA)，一个回看周期较短，为 15 根蜡烛线，一个回看周期较长，为 80 根蜡烛线。****
 
 ```py
- **`sma_short = data.sma(15).last
+ sma_short = data.sma(15).last
    sma_long = data.sma(80).last
 
    if sma_short > sma_long:
    	state.long_trend = "uptrend"
    else:
-   	state.long_trend = "downtrend"`**
+   	state.long_trend = "downtrend"
 ```
 
 ****那很简单！我们现在已经完成了 handler_long 函数。看起来是这样的:****
 
 ```py
-**`@schedule(interval="1d", symbol="BTCUSDT")
+@schedule(interval="1d", symbol="BTCUSDT")
 def handler_long(state, data):
    sma_short = data.sma(15).last
    sma_long = data.sma(80).last
@@ -187,7 +187,7 @@ def handler_long(state, data):
    if sma_short > sma_long:
    	state.long_trend = "uptrend"
    else:
-   	state.long_trend = "downtrend"`**
+   	state.long_trend = "downtrend"
 ```
 
 ### ****步骤 3:定义 handler_short****
@@ -195,8 +195,8 @@ def handler_long(state, data):
 ****现在让我们继续定义处理程序的缩写。记住，handler_short 将在 1 小时蜡烛上运行！****
 
 ```py
-**`@schedule(interval="1h", symbol="BTCUSDT")
-def handler_short(state, data):`**
+@schedule(interval="1h", symbol="BTCUSDT")
+def handler_short(state, data):
 ```
 
 ### ****步骤 4:获取 handler_short 的指标数据和资产价格****
@@ -208,13 +208,13 @@ def handler_short(state, data):`**
 *   ****只有当资产价格低于均线 5 时，我们才会交易，因此我们需要从数据中获取资产价格。****
 
 ```py
- **`ema_short = data.ema(5).last
+ ema_short = data.ema(5).last
     ema_long = data.ema(20).last
 
     qqe = data.qqe(20, 5, 4.2)  
     last_trend = qqe["trend"].last
 
-    last_closing_price = data.close_last`** 
+    last_closing_price = data.close_last 
 ```
 
 ### ****步骤 5:计算 handler_short 的买入信号****
@@ -222,11 +222,11 @@ def handler_short(state, data):`**
 ****在这一步，我们设定交易的规则。为此，我们创建了一个名为 signal_check 的内部函数，该函数负责检查是否满足交易规则。内部函数检查以下内容:长期趋势是上升趋势，短期趋势是上升趋势，QQE 表示买入，资产价格低于均线 5。如果满足所有规则，那么 signal_check 返回“真”(否则将返回“假”)。****
 
 ```py
- **`def signal_check():
+ def signal_check():
         if state.long_trend == "uptrend" and ema_short > ema_long and last_trend > 0 and last_closing_price < ema_short:
             return True 
         else:
-            return False`**
+            return False
 ```
 
 ### ****步骤 6:获取投资组合信息****
@@ -234,9 +234,9 @@ def handler_short(state, data):`**
 ****我们现在通过符号查询任何开放的[位置](https://docs.trality.com/trality-code-editor/api-documentation/position)。通过调用这个函数，我们接收到一个布尔值，该值指示该符号的开放位置是否存在。最后，我们检查任何未结订单。****
 
 ```py
-**`position = query_open_position_by_symbol(data.symbol, include_dust=False)
+position = query_open_position_by_symbol(data.symbol, include_dust=False)
     has_position = position is not None
-    has_open_orders = len(query_open_orders()) > 0`**
+    has_open_orders = len(query_open_orders()) > 0
 ```
 
 ### ****第 7 步:解决购买订单****
@@ -244,11 +244,11 @@ def handler_short(state, data):`**
 ****这就是我们算法的核心和灵魂所在:交易策略。我们使用[订单 API 来创建订单](https://docs.trality.com/trality-code-editor/api-documentation/order)。具体来说，如果内部函数 signal_check 发出买入 300 USDT 的信号，该算法就会发出做多市价单。此外，该算法使用[一取消其他订单范围](https://docs.trality.com/trality-code-editor/api-documentation/order/scope/onecancelsother#details)，因为我们希望为全部头寸设置 5%的止盈和 10%的跟踪止损。****
 
 ```py
-**`if signal_check() == True and not has_position and not has_open_orders:
+if signal_check() == True and not has_position and not has_open_orders:
         state.buy_order = order_value(symbol=data.symbol, value=300)
         with OrderScope.one_cancels_others():
             state.take_profit = order_take_profit(symbol=data.symbol,amount=state.buy_order.quantity, stop_percent=0.05,subtract_fees=True)
-            state.stop_loss = order_trailing_iftouched_amount(symbol=data.symbol, amount=-subtract_order_fees(state.buy_order.quantity ), trailing_percent= 0.1, stop_price=data.close[-1]*0.88)`**
+            state.stop_loss = order_trailing_iftouched_amount(symbol=data.symbol, amount=-subtract_order_fees(state.buy_order.quantity ), trailing_percent= 0.1, stop_price=data.close[-1]*0.88)
 ```
 
 ### ****第八步:将碎片拼在一起****
@@ -256,7 +256,7 @@ def handler_short(state, data):`**
 ****如果我们将所有这些步骤放在一起，我们会得到下面的小代码片段，我们可以随后对其进行第一次回溯测试:****
 
 ```py
-**`def initialize(state):
+def initialize(state):
     pass
 
 @schedule(interval="1d", symbol="BTCUSDT")
@@ -294,7 +294,7 @@ def handler_short(state, data):
         state.buy_order = order_value(symbol=data.symbol, value=300)
         with OrderScope.one_cancels_others():
             state.take_profit = order_take_profit(symbol=data.symbol,amount=state.buy_order.quantity, stop_percent=0.05,subtract_fees=True)
-            state.stop_loss = order_trailing_iftouched_amount(symbol=data.symbol, amount=-subtract_order_fees(state.buy_order.quantity ), trailing_percent= 0.1, stop_price=data.close[-1]*0.88)`**
+            state.stop_loss = order_trailing_iftouched_amount(symbol=data.symbol, amount=-subtract_order_fees(state.buy_order.quantity ), trailing_percent= 0.1, stop_price=data.close[-1]*0.88)
 ```
 
 ## ****回溯测试和评估交易策略****
@@ -342,7 +342,7 @@ def handler_short(state, data):
 ****现在它已经准备好进行优化了。别忘了在高级设置下激活优化器！****
 
 ```py
-**`@parameter(name="ema_short", type="float", default=5, min=3, max=15, enabled=True)
+@parameter(name="ema_short", type="float", default=5, min=3, max=15, enabled=True)
 @parameter(name="ema_long", type="float", default=20, min=15, max=40, enabled=True)
 def initialize(state, params):
     pass
@@ -382,7 +382,7 @@ def handler_short(state, data, params):
         state.buy_order = order_value(symbol=data.symbol, value=300)
         with OrderScope.one_cancels_others():
             state.take_profit = order_take_profit(symbol=data.symbol,amount=state.buy_order.quantity, stop_percent=0.05,subtract_fees=True)
-            state.stop_loss = order_trailing_iftouched_amount(symbol=data.symbol, amount=-subtract_order_fees(state.buy_order.quantity ), trailing_percent= 0.1, stop_price=data.close[-1]*0.88)`**
+            state.stop_loss = order_trailing_iftouched_amount(symbol=data.symbol, amount=-subtract_order_fees(state.buy_order.quantity ), trailing_percent= 0.1, stop_price=data.close[-1]*0.88)
 ```
 
 ****通过运行优化器，我们发现 ema_short 的最佳参数是 6，ema_long 的最佳参数是 21.25。你可以在下图中看到回溯测试的结果。****
